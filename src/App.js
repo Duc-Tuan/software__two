@@ -1,17 +1,38 @@
 // import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-// import { Tooltip } from '@syncfusion/ej2-react-popups';
 import Tippy from '@tippyjs/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGear } from '@fortawesome/free-solid-svg-icons';
 
 import './App.css';
-// import Header from '~/layouts/Header';
-// import Footer from '~/layouts/Footer';
+import Sidebar from '~/layouts/Sidebar';
+import { NavBar } from './components';
+import {
+  Calendar,
+  ColorPicked,
+  Customer,
+  Ecommerce,
+  Editor,
+  Employees,
+  Kanban,
+  Orders,
+  Area,
+  Bar,
+  ColorMapping,
+  Financial,
+  Line,
+  Pie,
+  Pyramid,
+  Stacked,
+} from './pages';
+
+import { useStateContext } from '~/contexts';
 
 function App() {
-  const activemenu = true;
+  const { activemenu } = useStateContext();
+
+  // const activemenu = true;
 
   return (
     <div className="App">
@@ -36,31 +57,37 @@ function App() {
             </Tippy>
           </div>
           {activemenu ? (
-            <div className="w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white">Sidebar</div>
+            <div className="w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white">
+              <Sidebar />
+            </div>
           ) : (
-            <div className="w-0 dark:bg-secondary-dark-bg">Sidebar w-0</div>
+            <div className="w-0 dark:bg-secondary-dark-bg">
+              <Sidebar />
+            </div>
           )}
 
           <div className={`dark:bg-main-bg bg-main-bg main-h-screen w-full ${activemenu ? 'md:ml-72' : 'flex-2'}`}>
-            <div className="fixed md:static bg-main-bg dark:bg-main-bg navbar w-full">Navbar</div>
+            <div className="fixed md:static bg-main-bg dark:bg-main-bg navbar w-full">
+              <NavBar />
+            </div>
           </div>
 
           <div>
             <Routes>
               {/* Dashboard */}
-              <Route path="/" element={<ECommerce />} />
-              <Route path="/ecommerce" element={<ECommerce />} />
+              <Route path="/" element={<Ecommerce />} />
+              <Route path="/ecommerce" element={<Ecommerce />} />
 
               {/* Pages */}
               <Route path="/orders" element={<Orders />} />
               <Route path="/employees" element={<Employees />} />
-              <Route path="/customers" element={<Customs />} />
+              <Route path="/customers" element={<Customer />} />
 
               {/* App */}
               <Route path="/kanban" element={<Kanban />} />
               <Route path="/editor" element={<Editor />} />
               <Route path="/calendar" element={<Calendar />} />
-              <Route path="/color-picker" element={<ColorPicker />} />
+              <Route path="/color-picker" element={<ColorPicked />} />
 
               {/* Charts */}
               <Route path="/line" element={<Line />} />

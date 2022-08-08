@@ -1,5 +1,5 @@
-function ThemeSet() {
-  return <section>ThemeSet</section>;
+function ThemeSetting() {
+  return <section>ThemeSetting</section>;
 }
 
-export default ThemeSet;
+export default ThemeSetting;

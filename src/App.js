@@ -30,9 +30,7 @@ import {
 import { useStateContext } from '~/contexts';
 
 function App() {
-  const { activemenu } = useStateContext();
-
-  // const activemenu = true;
+  const content = useStateContext();
 
   return (
     <div className="App">
@@ -56,7 +54,8 @@ function App() {
               </button>
             </Tippy>
           </div>
-          {activemenu ? (
+
+          {content.activeMenu ? (
             <div className="w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white">
               <Sidebar />
             </div>
@@ -66,7 +65,9 @@ function App() {
             </div>
           )}
 
-          <div className={`dark:bg-main-bg bg-main-bg main-h-screen w-full ${activemenu ? 'md:ml-72' : 'flex-2'}`}>
+          <div
+            className={`dark:bg-main-bg bg-main-bg main-h-screen w-full ${content.activeMenu ? 'md:ml-72' : 'flex-2'}`}
+          >
             <div className="fixed md:static bg-main-bg dark:bg-main-bg navbar w-full">
               <NavBar />
             </div>

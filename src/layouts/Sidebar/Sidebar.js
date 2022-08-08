@@ -12,7 +12,7 @@ import { faBiohazard, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 const ctx = classNames.bind(style);
 
 function Sidebar() {
-  const { activeMenu, setActiveMenu, screenSize } = useStateContext();
+  const { activeMenu, setActiveMenu } = useStateContext();
 
   const isActiveLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-white text-md m-2 ';
   const normalLink =
@@ -25,7 +25,7 @@ function Sidebar() {
           <div className={ctx('flex justify-between items-center')}>
             <Link
               to="/"
-              onClick={() => setActiveMenu(false)}
+              onClick={() => setActiveMenu(!activeMenu)}
               className={ctx(
                 'items-center gap-3 ml-3 mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900',
               )}
@@ -33,7 +33,7 @@ function Sidebar() {
               <FontAwesomeIcon icon={faBiohazard} /> <span>Shoppy</span>
             </Link>
 
-            <Tippy content="Menu">
+            <Tippy content="Close">
               <button
                 onClick={() => setActiveMenu(!activeMenu)}
                 className={ctx('text-xl rounded-full p-3 hover:bg-light-gray mt-4 block')}

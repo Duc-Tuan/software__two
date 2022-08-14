@@ -18,16 +18,17 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
       style={{ color }}
       className={ctx('relative text-xl rounded-full p-3 hover:bg-light-gray')}
     >
-      <span style={{ background: dotColor }} className={ctx('absolute inline-flex rounded-full h-2 w-2 right-2 top-2')}>
-        <FontAwesomeIcon icon={icon} />
-      </span>
+      <span
+        style={{ background: dotColor }}
+        className={ctx('absolute inline-flex rounded-full h-2 w-2 right-2 top-2')}
+      />
+      <FontAwesomeIcon icon={icon} />
     </button>
   </Tippy>
 );
 
 function NavBar() {
-  const { activeMenu, isClicked, screenSize, setActiveMenu, setIsClicked, handleClick, setScreenSize } =
-    useStateContext();
+  const { activeMenu, isClicked, screenSize, setActiveMenu, handleClick, setScreenSize } = useStateContext();
 
   useEffect(() => {
     const handleResize = () => setScreenSize(window.innerWidth);

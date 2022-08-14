@@ -2838,6 +2838,20 @@ export const SparklineAreaData = [
   { x: 5, yval: 10 },
 ];
 
+export const data = [
+  { month: 'Jan', sales: 35 },
+  { month: 'Feb', sales: 28 },
+  { month: 'Mar', sales: 34 },
+  { month: 'Apr', sales: 32 },
+  { month: 'may', sales: 40 },
+  { month: 'Jul', sales: 32 },
+  { month: 'Aug', sales: 55 },
+  { month: 'Sep', sales: 38 },
+  { month: 'Oct', sales: 30 },
+  { month: 'Now', sales: 25 },
+  { month: 'Dec', sales: 32 },
+];
+
 export const lineCustomSeries = [
   {
     dataSource: lineChartData[0],

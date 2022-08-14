@@ -15,7 +15,7 @@ function Sidebar() {
   const { activeMenu, setActiveMenu, screenSize } = useStateContext();
 
   const handleCloseSidebar = () => {
-    if(activeMenu && screenSize <= 900){
+    if (activeMenu && screenSize <= 900) {
       setActiveMenu(false);
     }
   };
@@ -31,7 +31,7 @@ function Sidebar() {
           <div className={ctx('flex justify-between items-center')}>
             <Link
               to="/"
-              onClick={() => setActiveMenu(!activeMenu)}
+              onClick={handleCloseSidebar}
               className={ctx(
                 'items-center gap-3 ml-3 mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900',
               )}
@@ -57,7 +57,7 @@ function Sidebar() {
                   <NavLink
                     to={`/${link.name}`}
                     key={link.name}
-                    onClick={() => {}}
+                    onClick={handleCloseSidebar}
                     className={({ isActive }) => (isActive ? isActiveLink : normalLink)}
                   >
                     {link.icon}

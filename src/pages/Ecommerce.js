@@ -1,4 +1,4 @@
-import { Button, SparkLine } from '~/components';
+import { Button, SparkLine, Stacked } from '~/components';
 import { earningData, data } from '~/assets/dummy';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
@@ -55,7 +55,7 @@ function Ecommerce() {
                 </span>
                 <span>Expense</span>
               </p>
-              <p className="flex items-center gap-4 text-gray-400 hover:drop-shadow-xl">
+              <p className="flex items-center gap-2 text-green-400 hover:drop-shadow-xl">
                 <span>
                   <FontAwesomeIcon icon={faCircle} />
                 </span>
@@ -86,6 +86,14 @@ function Ecommerce() {
               <div className="mt-5">
                 <SparkLine title="Budget, Expense" data={data} type="Line" />
               </div>
+
+              <div className="mt-10">
+                <Button color="white" bgcolor="blue" text="Download Report" borderRadius="10px" />
+              </div>
+            </div>
+
+            <div>
+              <Stacked data={data} type="monotone" color="blue" />
             </div>
           </div>
         </div>
